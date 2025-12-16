@@ -2,117 +2,117 @@
 
 # OpenAI QuestionMaker
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Lisans](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-2.0+-green.svg)
 ![React](https://img.shields.io/badge/react-18+-61DAFB.svg)
 ![PostgreSQL](https://img.shields.io/badge/database-postgresql-336791.svg)
-![Status](https://img.shields.io/badge/status-active-success.svg)
+![Durum](https://img.shields.io/badge/status-active-success.svg)
 
-**OpenAI QuestionMaker** is a sophisticated full-stack application designed to generate, manage, and store complex educational questions using state-of-the-art AI. By leveraging OpenAI's powerful language models, it allows educators and developers to create high-quality question banks for exams, quizzes, and educational games effortlessly.
+**OpenAI QuestionMaker**, en son teknoloji yapay zekayı kullanarak karmaşık eğitim soruları oluşturmak, yönetmek ve saklamak için tasarlanmış gelişmiş bir full-stack uygulamasıdır. OpenAI'nin güçlü dil modellerinden yararlanarak, eğitimcilerin ve geliştiricilerin sınavlar, testler ve eğitici oyunlar için yüksek kaliteli soru bankaları oluşturmasına olanak tanır.
 
-## 🚀 Key Features
+## 🚀 Temel Özellikler
 
-*   **AI-Powered Generation**: Create diverse and challenging questions across various subjects using OpenAI's API.
-*   **Robust Database**: Automatically store questions, answers, distractors, and metadata (difficulty, type) in a PostgreSQL database.
-*   **Modern UI**: intuitive React-based frontend for seamless interaction and question management.
-*   **RESTful API**: Flexible Flask backend providing a reliable `/create_question` endpoint for system integration.
-*   **Scalable Architecture**: Built with separation of concerns in mind, allowing for easy expansion of both frontend and backend.
+*   **Yapay Zeka Destekli Üretim**: OpenAI API'sini kullanarak çeşitli konularda zorlu ve çeşitli sorular oluşturun.
+*   **Güçlü Veritabanı**: Soruları, cevapları, çeldiricileri ve meta verileri (zorluk, tür) otomatik olarak bir PostgreSQL veritabanında saklayın.
+*   **Modern Arayüz**: Sorunsuz etkileşim ve soru yönetimi için sezgisel React tabanlı arayüz.
+*   **RESTful API**: Sistem entegrasyonu için güvenilir bir `/create_question` uç noktası sağlayan esnek Flask backend.
+*   **Ölçeklenebilir Mimari**: Hem frontend hem de backend'in kolayca genişletilmesine olanak tanıyan, endişelerin ayrılığı (separation of concerns) ilkesiyle oluşturulmuştur.
 
-## 🛠️ Technology Stack
+## 🛠️ Teknoloji Yığını
 
-### Backend
-*   **Framework**: Flask (Python)
-*   **Database**: PostgreSQL (via SQLAlchemy ORM)
-*   **API**: RESTful endpoints with CORS support
+### Backend (Arka Uç)
+*   **Çatı (Framework)**: Flask (Python)
+*   **Veritabanı**: PostgreSQL (SQLAlchemy ORM aracılığıyla)
+*   **API**: CORS destekli RESTful uç noktaları
 
-### Frontend
-*   **Library**: React.js (v18+)
-*   **Styling**: Modern CSS
-*   **HTTP Client**: Axios
+### Frontend (Ön Yüz)
+*   **Kütüphane**: React.js (v18+)
+*   **Stil**: Modern CSS
+*   **HTTP İstemcisi**: Axios
 
-## 📂 Project Structure
+## 📂 Proje Yapısı
 
-The core application logic is located within the `soru oluşturucu/Soru oluştur` directory:
+Temel uygulama mantığı `soru oluşturucu/Soru oluştur` dizini içinde yer almaktadır:
 
 ```
 OpenAi-Questionmaker/
-├── assets/                 # Project assets (banners, images)
+├── assets/                 # Proje varlıkları (bannerlar, görseller)
 ├── soru oluşturucu/
 │   └── Soru oluştur/
-│       ├── backend/        # Flask Application
-│       │   ├── app.py      # Main entry point & DB Models
-│       │   └── venv/       # Python virtual environment
-│       └── frontend/       # React Application
-│           ├── src/        # React source code
-│           ├── public/     # Static assets
+│       ├── backend/        # Flask Uygulaması
+│       │   ├── app.py      # Ana giriş noktası & Veritabanı Modelleri
+│       │   └── venv/       # Python sanal ortamı
+│       └── frontend/       # React Uygulaması
+│           ├── src/        # React kaynak kodları
+│           ├── public/     # Statik varlıklar
 │           └── package.json
 └── README.md
 ```
 
-## 💻 Installation & Usage
+## 💻 Kurulum ve Kullanım
 
-### Prerequisites
+### Gereksinimler
 *   Python 3.8+
 *   Node.js & npm
-*   PostgreSQL installed and running locally
-*   OpenAI API Key
+*   Yerel olarak çalışan PostgreSQL
+*   OpenAI API Anahtarı
 
-### 1. Backend Setup
+### 1. Backend Kurulumu
 
-Navigate to the backend directory:
+Backend dizinine gidin:
 ```bash
 cd "soru oluşturucu/Soru oluştur/backend"
 ```
 
-Create and activate a virtual environment:
+Bir sanal ortam oluşturun ve etkinleştirin:
 ```bash
 python -m venv venv
-# Windows
+# Windows için
 .\venv\Scripts\activate
-# macOS/Linux
+# macOS/Linux için
 source venv/bin/activate
 ```
 
-Install dependencies (Flask, SQLAlchemy, Psicopg2, etc.):
+Bağımlılıkları yükleyin (Flask, SQLAlchemy, Psicopg2 vb.):
 ```bash
 pip install flask flask-sqlalchemy flask-cors psycopg2-binary
 ```
 
-Configure the database in `app.py`:
-Ensure your PostgreSQL database is running and the connection string in line 6 matches your credentials:
+Veritabanını `app.py` içinde yapılandırın:
+PostgreSQL veritabanınızın çalıştığından ve 6. satırdaki bağlantı dizesinin kimlik bilgilerinizle eşleştiğinden emin olun:
 ```python
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost:5432/your_database'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kullanici_adi:sifre@localhost:5432/veritabaniniz'
 ```
 
-Run the server:
+Sunucusu çalıştırın:
 ```bash
 python app.py
 ```
-*The API will start at `http://localhost:5000`*
+*API `http://localhost:5000` adresinde başlayacaktır.*
 
-### 2. Frontend Setup
+### 2. Frontend Kurulumu
 
-Open a new terminal and navigate to the frontend directory:
+Yeni bir terminal açın ve frontend dizinine gidin:
 ```bash
 cd "soru oluşturucu/Soru oluştur/frontend"
 ```
 
-Install Node dependencies:
+Node bağımlılıklarını yükleyin:
 ```bash
 npm install
 ```
 
-Start the application:
+Uygulamayı başlatın:
 ```bash
 npm start
 ```
-*The app will run at `http://localhost:3000`*
+*Uygulama `http://localhost:3000` adresinde çalışacaktır.*
 
-## 🤝 Contributing
+## 🤝 Katkıda Bulunma
 
-We welcome contributions! Please check the `CONTRIBUTING.md` file for guidelines on how to help improve this project.
+Katkılarınızı bekliyoruz! Bu projeyi geliştirmeye nasıl yardımcı olabileceğinizle ilgili yönergeler için lütfen `CONTRIBUTING.md` dosyasına bakın.
 
-## 📄 License
+## 📄 Lisans
 
-This project is licensed under the **MIT License**. See the `LICENSE` file for full details.
+Bu proje **MIT Lisansı** kapsamındadır. Tüm detaylar için `LICENSE` dosyasına bakınız.
