@@ -26,6 +26,27 @@
 - **Frontend**: React.js, Nginx (Prodüksiyon için)
 - **DevOps**: Docker, Docker Compose, GitHub Actions
 
+## 🏗️ Mimari Şeması
+
+Aşağıdaki şema, uygulamanın bileşenlerinin nasıl etkileşime girdiğini göstermektedir:
+
+```mermaid
+graph TD
+    User[Kullanıcı] -->|HTTP Request| Frontend[React Frontend]
+    Frontend -->|API Calls (Axios)| Backend[Flask Backend]
+    Backend -->|SQL Query| DB[(PostgreSQL Database)]
+    Backend -->|Prompt| OpenAI[OpenAI API]
+    OpenAI -->|Generated Question| Backend
+    Backend -->|JSON Response| Frontend
+    Frontend -->|Render UI| User
+
+    subgraph Docker Network
+        Frontend
+        Backend
+        DB
+    end
+```
+
 ## 📂 Proje Yapısı
 
 ```
